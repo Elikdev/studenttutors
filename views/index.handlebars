@@ -2,16 +2,21 @@
     <span class="close" id="close" onclick=" document.getElementById('registration').style.display='none'">
         &times;
     </span>
-    <form action="" method="post" class="login-form">
+    <form action="/user/login" method="post" class="login-form">
+        {{#each errors}}
+        <div class="errors">
+            <p class="text">{{text}}</p>
+        </div>
+        {{/each}}
         <div class="form-container">
             <div class="img-thumb">
                 <img src="/img/avatar1.png" alt="Avatar" class="avatar" />
             </div>
             <label>
-                <input type="email" name="email" placeholder="Email" />
+                <input type="email" name="email" placeholder="Email" value="{{email}}" />
             </label>
             <label>
-                <input type="password" name="password" placeholder="Password" />
+                <input type="password" name="password" placeholder="Password" value="{{password}}" />
             </label>
             <label class="rmb"><input type="checkbox" checked="checked" name="remember" />
                 Remember me</label>
@@ -21,7 +26,7 @@
                 <span class="fpass">Forgot Password?</span>
                 <span class="sign-up">
                     Not yet registered?
-                    <a href="#" class="registerbutton" id="register2">Sign up</a>
+                    <a href="#register" class="registerbutton" id="register2">Sign up</a>
                 </span>
             </div>
         </div>
@@ -32,17 +37,22 @@
     <span class="close" onclick=" document.getElementById('registration2').style.display='none'">
         &times;
     </span>
-    <form action="" method="post" class="login-form">
+    <form action="/user/register" method="post" class="login-form">
+        {{#each errors}}
+        <div class="errors">
+            <p class="text">{{text}}</p>
+        </div>
+        {{/each}}
         <div class="form-container">
             <div class="img-thumb">
                 <h2>Registration Form</h2>
                 <p>Please fill in the form to create an account</p>
             </div>
             <label class="login-group1">
-                <input type="text" name="fullname" placeholder="Fullname" />
+                <input type="text" name="fullname" placeholder="Fullname" value="{{fullname}}" />
             </label>
             <label class="login-group1">
-                <input type="email" name="email" placeholder="Email" />
+                <input type="email" name="email" placeholder="Email" value="{{email}}" />
             </label>
             <label class="login-group1">
                 <select name="level" id="level">
@@ -60,7 +70,8 @@
                 <input type="password" name="password" placeholder="Password" />
             </label>
             <label class="form-group">
-                <textarea name="details" placeholder="Little details about yourself"></textarea>
+                <textarea name="profile_details"
+                    placeholder="Little details about yourself">{{profile_details}}</textarea>
                 <label class="rmb"><input type="checkbox" checked="checked" name="remember" />
                     Remember me</label>
             </label>
@@ -70,13 +81,12 @@
                 <span class="fpass">By signing up, you agree to our
                     <a href="http://"> Terms of privacy</a></span>
                 <span class="sign-up">
-                    Already registered? <a href="#" id="login2">Sign in</a>
+                    Already registered? <a href="#login" id="login2">Sign in</a>
                 </span>
             </div>
         </div>
     </form>
 </div>
-
 <section class="section">
     <div class="glide">
         <div class="glide__track" data-glide-el="track">

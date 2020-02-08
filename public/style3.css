@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
 * {
 	margin: 0;
 	padding: 0;
@@ -172,6 +174,14 @@ header {
 }
 .form-container {
 	padding: 16px;
+}
+.errors {
+	color: #9b5959;
+	text-align: center;
+	margin: 0.4em 0;
+}
+.text {
+	padding-bottom: 12px;
 }
 .registration form input[type='email'],
 .registration form input[type='password'],
@@ -456,7 +466,7 @@ hr {
 	}
 	.big-nav {
 		display: block;
-		width: 40%;
+		width: 60%;
 		margin-top: 0.6em;
 	}
 	.buttons-big {
