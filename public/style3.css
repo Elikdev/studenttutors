@@ -176,9 +176,28 @@ header {
 	padding: 16px;
 }
 .errors {
-	color: #9b5959;
-	text-align: center;
-	margin: 0.4em 0;
+	color: #ffefef;
+}
+.errors ul {
+	list-style-type: none;
+	background-color: #e26a8e;
+	background-image: linear-gradient(210deg, #e26a8e 20%, #ee3e73 78%);
+	border-radius: 10px;
+	width: 80%;
+	margin: 0 auto;
+	padding: 0 1.2em 0 2em;
+}
+.errors li {
+	padding: 0.5em;
+	margin: 0.4em auto;
+	position: relative;
+}
+.errors li:after {
+	content: '---------------------------------------------------';
+	color: #ffffff;
+	display: block;
+	position: absolute;
+	bottom: -1px;
 }
 .text {
 	padding-bottom: 12px;

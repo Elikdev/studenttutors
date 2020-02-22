@@ -1,17 +1,32 @@
+{{#if success}}
+<section>{{success}}</section>
+{{else}}
 <div class="registration" id="registration">
     <span class="close" id="close" onclick=" document.getElementById('registration').style.display='none'">
         &times;
     </span>
     <form action="/user/login" method="post" class="login-form">
-        {{#each errors}}
-        <div class="errors">
-            <p class="text">{{text}}</p>
-        </div>
-        {{/each}}
+
         <div class="form-container">
+            {{#if errors}}
+            <section class="errors">
+                <ul>
+                    {{#each errors}}
+                    <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+            </section>
+            {{/if}}
+            {{#if errors}}
+            <div class="img-thumb">
+                <img src="/img/avatar1.png" alt="Avatar" class="avatar" style="border: 6px solid #e26a8e" />
+            </div>
+            {{else}}
             <div class="img-thumb">
                 <img src="/img/avatar1.png" alt="Avatar" class="avatar" />
             </div>
+            {{/if}}
+
             <label>
                 <input type="email" name="email" placeholder="Email" value="{{email}}" />
             </label>
@@ -26,24 +41,34 @@
                 <span class="fpass">Forgot Password?</span>
                 <span class="sign-up">
                     Not yet registered?
-                    <a href="#register" class="registerbutton" id="register2">Sign up</a>
+                    <a href="/user/register" class="registerbutton" id="register2">Sign up</a>
                 </span>
             </div>
         </div>
     </form>
 </div>
+{{/if}}
 
+
+{{#if success}}
+<section>{{success}}</section>
+{{else}}
 <div class="registration2" id="registration2">
     <span class="close" onclick=" document.getElementById('registration2').style.display='none'">
         &times;
     </span>
     <form action="/user/register" method="post" class="login-form">
-        {{#each errors}}
-        <div class="errors">
-            <p class="text">{{text}}</p>
-        </div>
-        {{/each}}
+
         <div class="form-container">
+            {{#if errors}}
+            <section class="errors">
+                <ul>
+                    {{#each errors}}
+                    <li>{{this}}</li>
+                    {{/each}}
+                </ul>
+            </section>
+            {{/if}}
             <div class="img-thumb">
                 <h2>Registration Form</h2>
                 <p>Please fill in the form to create an account</p>
@@ -56,6 +81,7 @@
             </label>
             <label class="login-group1">
                 <select name="level" id="level">
+                    <option value="{{level}}">{{level}}</option>
                     <option value="sLevel">--Select Level--</option>
                     <option value="jss">Junior Secondary</option>
                     <option value="sss">Senior Secondary</option>
@@ -64,6 +90,7 @@
                     <option value="300L">300 Level</option>
                     <option value="400L">400 Level</option>
                     <option value="500L">500 Level</option>
+
                 </select>
             </label>
             <label class="form-group">
@@ -81,12 +108,15 @@
                 <span class="fpass">By signing up, you agree to our
                     <a href="http://"> Terms of privacy</a></span>
                 <span class="sign-up">
-                    Already registered? <a href="#login" id="login2">Sign in</a>
+                    Already registered? <a href="/user/login" id="login2">Sign in</a>
                 </span>
             </div>
         </div>
     </form>
 </div>
+{{/if}}
+
+
 <section class="section">
     <div class="glide">
         <div class="glide__track" data-glide-el="track">

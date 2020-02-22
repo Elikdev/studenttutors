@@ -10,10 +10,11 @@
     <link rel="stylesheet" href="/css/glide.core.min.css" />
     <link rel="stylesheet" href="/css/glide.theme.min.css" />
 
-    <title>Student-Tutors || Welcome</title>
+    <title>{{title}}</title>
 </head>
 
 <body>
+
     <div class="container" id="container">
         <header>
             <div class="container-box">
@@ -30,19 +31,19 @@
                             <div class="recent-posts">
                                 <a href="#">Recent Topics</a>
                             </div>
-                            {{#if message.success}}
+                            {{#if success}}
                             <div class="success">
-                                <small>Signed in as {{email}}</small>
+                                <small><i class="fas fa-user"></i>Profile</small>
                             </div>
                             <div class="success">
                                 <a href="/user/logout">Log Out</a>
                             </div>
                             {{else}}
                             <div class="login">
-                                <a href="#login" id="login">Login</a>
+                                <a href="/user/login" id="login">Login</a>
                             </div>
                             <div class="register">
-                                <a href="#register" id="register">Sign Up</a>
+                                <a href="/user/register" id="register">Sign Up</a>
                             </div>
                             {{/if}}
                         </div>
@@ -59,14 +60,13 @@
                         <button class="recent-posts">
                             <a href="http://">Recent Topics</a>
                         </button>
-
-                        {{#if message.success}}
+                        {{#if success}}
                         <button>Signed in as {{email}}</button>
                         <button><a href="/user/logout">Log Out</a></button>
                         {{else}}
-                        <button class="login"><a href="#login" id="login1">Login</a></button>
+                        <button class="login"><a href="/user/login" id="login1">Login</a></button>
                         <button class="register">
-                            <a href="#register" id="register1">Sign Up</a>
+                            <a href="/user/register" id="register1">Sign Up</a>
                         </button>
                         {{/if}}
                     </div>
