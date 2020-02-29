@@ -71,6 +71,14 @@ header {
 	flex-direction: row;
 	padding: 1.2em 0 0.4em 0;
 }
+.header-contents .logo-link {
+	color: #ffffff;
+	opacity: 0.9;
+}
+.header-contents .logo-link:hover {
+	text-decoration: none;
+	opacity: 1;
+}
 .logo h1 {
 	font-size: 1.5em;
 	font-weight: 600;

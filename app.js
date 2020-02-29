@@ -32,11 +32,15 @@ app.use(cookieParser('elik'));
 app.use(
 	session({
 		secret: 'elik',
-		cookie: { maxAge: 4000000 },
+		cookie: { maxAge: 60000 },
 		saveUninitialized: true,
-		resave: true
+		resave: false
 	})
 );
+app.use((req, res, next) => {
+	res.locals.session = req.session;
+	next();
+});
 
 //express messages middleware
 app.use(flash());
@@ -44,11 +48,16 @@ app.use(flash());
 //routes
 app.use('/user', require('./routes/index'));
 
+app.get('/session', (req, res) => {
+	console.log(req.session);
+});
+
 //get the index view
 app.get('/', (req, res) => {
 	res.render('index', {
 		title: 'Student-Tutors || Welcome',
-		success: req.flash('success')
+		success: req.flash('success'),
+		email: req.session.email
 	});
 });
 

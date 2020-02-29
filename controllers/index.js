@@ -5,7 +5,8 @@ const { validationResult } = require('express-validator');
 exports.registerPage = (req, res) => {
 	res.render('index', {
 		layout: 'formlayout2',
-		errors: req.flash('errors')
+		errors: req.flash('errors'),
+		body: req.session.body
 	});
 };
 exports.registerUser = (req, res) => {
@@ -18,12 +19,24 @@ exports.registerUser = (req, res) => {
 			'errors',
 			output.map(err => err.msg)
 		);
+		req.session.body = {
+			fullname,
+			email,
+			level,
+			profile_details
+		};
 		res.redirect('/user/register');
 	} else {
 		User.findOne({ email: email })
 			.then(found => {
 				if (found) {
 					req.flash('errors', 'Email already exists');
+					req.session.body = {
+						fullname,
+						email,
+						level,
+						profile_details
+					};
 					res.redirect('/user/register');
 				} else {
 					bcrypt
@@ -42,6 +55,7 @@ exports.registerUser = (req, res) => {
 								.save()
 								.then(savedUser => {
 									req.flash('success', 'User successfully registered!');
+									req.session.email = savedUser.email;
 
 									res.redirect('/');
 								})
@@ -63,7 +77,8 @@ exports.registerUser = (req, res) => {
 exports.loginPage = (req, res) => {
 	res.render('index', {
 		layout: 'formLayout',
-		errors: req.flash('errors')
+		errors: req.flash('errors'),
+		body: req.session.body
 	});
 };
 
@@ -77,6 +92,9 @@ exports.loginUser = (req, res) => {
 			'errors',
 			output.map(err => err.msg)
 		);
+		req.session.body = {
+			email
+		};
 		res.redirect('/user/login');
 	} else {
 		User.findOne({ email: email })
@@ -90,9 +108,13 @@ exports.loginUser = (req, res) => {
 						.then(valid => {
 							if (!valid) {
 								req.flash('errors', 'Invalid email and password');
+								req.session.body = {
+									email
+								};
 								res.redirect('/user/login');
 							} else {
 								req.flash('success', 'You are now logged in');
+								req.session.email = user.email;
 								res.redirect('/');
 							}
 						})
@@ -103,12 +125,13 @@ exports.loginUser = (req, res) => {
 				}
 			})
 			.catch(err => {
-				req.flash('errors', 'Failure in signing user in');
+				req.flash('errors', 'Failure in signing user in, Try again, later');
 				res.redirect('/user/login');
 			});
 	}
 };
 
 exports.logUserout = (req, res) => {
+	req.session = null;
 	res.redirect('/user/login');
 };

@@ -19,10 +19,11 @@
         <header>
             <div class="container-box">
                 <div class="header-contents">
-                    <div class="logo">
-                        <h1>Student-Tutors</h1>
-                    </div>
-
+                    <a class="logo-link" href="/">
+                        <div class="logo">
+                            <h1>Student-Tutors</h1>
+                        </div>
+                    </a>
                     <nav class="big-nav">
                         <div class="buttons-big">
                             <div class="trending">
@@ -33,11 +34,9 @@
                             </div>
                             {{#if success}}
                             <div class="success">
-                                <small><i class="fas fa-user"></i>Profile</small>
+                                <small><i class="fas fa-user"></i>{{email}}</small>
                             </div>
-                            <div class="success">
-                                <a href="/user/logout">Log Out</a>
-                            </div>
+
                             {{else}}
                             <div class="login">
                                 <a href="/user/login" id="login">Login</a>
@@ -62,7 +61,7 @@
                         </button>
                         {{#if success}}
                         <button>Signed in as {{email}}</button>
-                        <button><a href="/user/logout">Log Out</a></button>
+
                         {{else}}
                         <button class="login"><a href="/user/login" id="login1">Login</a></button>
                         <button class="register">

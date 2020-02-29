@@ -1,5 +1,4 @@
 {{#if success}}
-<section>{{success}}</section>
 {{else}}
 <div class="registration" id="registration">
     <span class="close" id="close" onclick=" document.getElementById('registration').style.display='none'">
@@ -28,10 +27,10 @@
             {{/if}}
 
             <label>
-                <input type="email" name="email" placeholder="Email" value="{{email}}" />
+                <input type="email" name="email" placeholder="Email" value="{{body.email}}" />
             </label>
             <label>
-                <input type="password" name="password" placeholder="Password" value="{{password}}" />
+                <input type="password" name="password" placeholder="Password" />
             </label>
             <label class="rmb"><input type="checkbox" checked="checked" name="remember" />
                 Remember me</label>
@@ -51,7 +50,6 @@
 
 
 {{#if success}}
-<section>{{success}}</section>
 {{else}}
 <div class="registration2" id="registration2">
     <span class="close" onclick=" document.getElementById('registration2').style.display='none'">
@@ -74,14 +72,14 @@
                 <p>Please fill in the form to create an account</p>
             </div>
             <label class="login-group1">
-                <input type="text" name="fullname" placeholder="Fullname" value="{{fullname}}" />
+                <input type="text" name="fullname" placeholder="Fullname" value="{{body.fullname}}" />
             </label>
             <label class="login-group1">
-                <input type="email" name="email" placeholder="Email" value="{{email}}" />
+                <input type="email" name="email" placeholder="Email" value="{{body.email}}" />
             </label>
             <label class="login-group1">
                 <select name="level" id="level">
-                    <option value="{{level}}">{{level}}</option>
+                    <option value="{{body.level}}">{{body.level}}</option>
                     <option value="sLevel">--Select Level--</option>
                     <option value="jss">Junior Secondary</option>
                     <option value="sss">Senior Secondary</option>
@@ -98,7 +96,7 @@
             </label>
             <label class="form-group">
                 <textarea name="profile_details"
-                    placeholder="Little details about yourself">{{profile_details}}</textarea>
+                    placeholder="Little details about yourself">{{body.profile_details}}</textarea>
                 <label class="rmb"><input type="checkbox" checked="checked" name="remember" />
                     Remember me</label>
             </label>
