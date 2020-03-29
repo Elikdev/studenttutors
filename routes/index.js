@@ -1,19 +1,11 @@
 const express = require('express');
-const router = express.Router();
+
 const { check } = require('express-validator');
 const indexController = require('../controllers/index');
+const indexRouter = express.Router();
 
-router.get('/login', indexController.loginPage);
-router.post(
-	'/login',
-	[
-		check('email', 'Email is empty or too short').isEmail(),
-		check('password', 'Password is empty or too short').notEmpty()
-	],
-	indexController.loginUser
-);
-router.get('/register', indexController.registerPage);
-router.post(
+indexRouter.get('/register', indexController.registerPage);
+indexRouter.post(
 	'/register',
 	[
 		check('fullname', 'Name field is empty').notEmpty(),
@@ -24,6 +16,16 @@ router.post(
 	],
 	indexController.registerUser
 );
-router.get('/logout', indexController.logUserout);
+indexRouter.get('/login', indexController.loginPage);
+indexRouter.post(
+	'/login',
+	[
+		check('email', 'Email is empty or too short').isEmail(),
+		check('password', 'Password is empty or too short').notEmpty()
+	],
+	indexController.loginUser
+);
 
-module.exports = router;
+indexRouter.get('/logout', indexController.logUserout);
+
+module.exports = indexRouter;

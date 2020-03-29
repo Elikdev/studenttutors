@@ -5,7 +5,10 @@ const dbCS = process.env.DB_CONNECT;
 
 const dbConnection = () => {
 	mongoose
-		.connect(dbCS, { useNewUrlParser: true })
+		.connect(dbCS || 'mongodb://127.0.0.1:27017/studenttutors', {
+			useNewUrlParser: true,
+			useUnifiedTopology: true
+		})
 		.then(() => {
 			console.log('Successfully connected to the database');
 		})

@@ -1,5 +1,7 @@
 const express = require('express');
-
+const tutorRouter = require('./routes/tutors');
+const indexRouter = require('./routes/index');
+const indexRoutes = require('./routes/home');
 const exhbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const path = require('path');
@@ -46,11 +48,9 @@ app.use((req, res, next) => {
 app.use(flash());
 
 //routes
-app.use('/user', require('./routes/index'));
-
-app.get('/session', (req, res) => {
-	console.log(req.session);
-});
+app.use('/', indexRoutes);
+app.use('/tutors', tutorRouter);
+app.use('/user', indexRouter);
 
 //get the index view
 app.get('/', (req, res) => {

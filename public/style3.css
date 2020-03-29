@@ -188,25 +188,20 @@ header {
 }
 .errors ul {
 	list-style-type: none;
-	background-color: #e26a8e;
-	background-image: linear-gradient(210deg, #e26a8e 20%, #ee3e73 78%);
-	border-radius: 10px;
-	width: 80%;
-	margin: 0 auto;
-	padding: 0 1.2em 0 2em;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: flex-end;
 }
 .errors li {
-	padding: 0.5em;
+	color: #ff0707;
+	width: 80%;
+	background-color: #f8d7da;
+	border-radius: 5px;
+	padding: 0.5em 0 0.5em 5em;
 	margin: 0.4em auto;
-	position: relative;
 }
-.errors li:after {
-	content: '---------------------------------------------------';
-	color: #ffffff;
-	display: block;
-	position: absolute;
-	bottom: -1px;
-}
+
 .text {
 	padding-bottom: 12px;
 }
@@ -218,7 +213,7 @@ header {
 .registration2 form select {
 	display: inline-block;
 	width: 95%;
-	margin: 1em 0;
+	margin-top: 0.5em;
 	color: #333;
 	border: 2px solid #aaaaaa;
 	border-radius: 5px;
@@ -229,7 +224,7 @@ header {
 	display: inline-block;
 	width: 95%;
 	height: 4em;
-	margin: 1em 0;
+	margin-top: 0.5em;
 	color: #333;
 	border: 2px solid #aaaaaa;
 	border-radius: 5px;
@@ -255,6 +250,12 @@ header {
 .registration2 form button:hover {
 	opacity: 1;
 	transition: all 0.6s;
+}
+.login-group1 {
+	margin: 1em 0;
+}
+.login-group1 label {
+	font-weight: 600;
 }
 .registration .close,
 .registration2 .close {
@@ -483,6 +484,225 @@ hr {
 	color: #c4c2c5;
 }
 
+/*search handlebars*/
+.searchSpace {
+	width: 90%;
+	margin: 0 auto;
+	position: relative;
+}
+
+.searchSpace form input {
+	width: 85%;
+	display: inline-block;
+	margin: 0 auto;
+	min-height: 1.7em;
+	padding: 1em;
+	color: #333;
+	border: 2px solid #aaaaaa;
+	border-radius: 10px;
+	background: transparent;
+}
+
+.searchSpace form button {
+	background: transparent;
+	margin-left: -0.02em;
+	height: 40px;
+	width: 40px;
+	margin-top: 1em;
+	border-radius: 10px;
+	border: 2px solid #aaaaaa;
+}
+
+.searchSpace form button i {
+	font-size: 1.5em;
+	color: #6b5b95;
+}
+.searchSpace form button i:hover {
+	color: #ffffff;
+	transition: all 0.5s;
+}
+.searchSpace form button:hover {
+	background-color: #aaaaaa;
+	color: #ffffff;
+	transition: all 0.5s;
+}
+
+.tags small:nth-child(1) {
+	color: #5a5656;
+	margin-right: 1.2em;
+	text-transform: capitalize;
+	font-weight: bolder;
+}
+.tags small {
+	color: #aaaaaa;
+	text-transform: lowercase;
+	margin-right: 1.1em;
+}
+.tags small:nth-child(2):hover,
+.tags small:nth-child(3):hover,
+.tags small:nth-child(4):hover,
+.tags small:nth-child(5):hover {
+	color: #333333;
+	font-weight: bolder;
+}
+.section2 {
+	display: block;
+	margin-top: 1.5em;
+	margin-bottom: 1.5em;
+}
+.posts {
+	margin-bottom: 3em;
+	border: 4px solid #dbd9d9;
+	border-radius: 12px;
+	padding: 1em 1.2em;
+	box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.4);
+}
+.heading {
+	font-size: calc(5px + 1.3em);
+	margin-bottom: 1em;
+	background-color: #6b5b95;
+	background-image: linear-gradient(180deg, #6b5b95 20%, #9a80da 78%);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.eachposts {
+	margin-bottom: 3em;
+	position: relative;
+	padding-top: 1.5em;
+	padding-bottom: 2.5em;
+	border-bottom: 2px solid #9980da7c;
+	box-shadow: 0px 1px 4px rgba(66, 64, 66, 0.2);
+}
+.eachposts .topic {
+	font-size: calc(10px + 1em);
+	margin-bottom: 0.1em;
+	transition: 0.1s;
+	padding: 0 0.5em;
+}
+.eachposts:hover .topic {
+	margin-left: 0.2em;
+	transition: 0.5s;
+}
+.gt {
+	background-color: #6b5b95;
+	background-image: linear-gradient(180deg, #6b5b95 20%, #9a80da 78%);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	font-size: 20px;
+	font-weight: bold;
+	margin-right: 0.2em;
+}
+.eachposts .hidden {
+	width: 70%;
+	font-size: 1.3rem;
+	color: #aaaaaa;
+	transform: translateX(-40px);
+	transition: 0.1s;
+	opacity: 0;
+	visibility: hidden;
+	padding: 0 0.6em;
+}
+.eachposts:hover .hidden {
+	transform: translateX(0px);
+	transition: 0.5s;
+	opacity: 1;
+	visibility: visible;
+}
+.postBody {
+	font-size: calc(10px + 0.5em);
+	word-spacing: 0.1em;
+	margin-top: -1em;
+	transition: 0.1s;
+	padding: 0 0.8em;
+}
+.eachposts:hover .postBody {
+	margin-top: 0.5em;
+	transition: 0.5s;
+}
+.availableT {
+	flex: 1;
+	border: 2px solid #343434;
+	margin-left: 3em;
+}
+.categories {
+	padding: 1em 3em;
+	border: 4px solid #dbd9d9;
+	border-radius: 12px;
+	box-shadow: -4px 4px 6px rgba(0, 0, 0, 0.4);
+}
+.center {
+	text-align: center;
+	position: relative;
+}
+.underline {
+	width: 5%;
+	height: 0.2em;
+	background: #6b5b95;
+	margin: -1.5em auto 1em auto;
+}
+.testimonials {
+	margin-top: 6em;
+	margin-bottom: 6em;
+}
+.eachTestimonial {
+	position: relative;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+.eachTestimonial blockquote {
+	width: 70%;
+	margin: 0 auto;
+	order: 2;
+	font-size: calc(5px + 1em);
+	line-height: 1.6em;
+}
+.eachTestimonial .previous {
+	order: 1;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	font-size: 1.5em;
+	cursor: pointer;
+}
+.eachTestimonial .next {
+	order: 3;
+	font-size: 1.5em;
+	position: absolute;
+	top: 50%;
+	right: 0;
+	cursor: pointer;
+	transition: all 1s;
+}
+.eachTestimonial .previous:hover,
+.eachTestimonial .next:hover {
+	transform: scale(1.5);
+	padding-left: 0.6em;
+	transition: all s;
+}
+.name {
+	font-size: 0.8em;
+	color: #6b5b95;
+	text-align: center;
+}
+.name1 {
+	font-weight: bold;
+	margin-bottom: -1em;
+	display: block;
+}
+.name2 {
+	display: block;
+}
+
+.eachTestimonial .next:hover {
+	transform: scale(1.5);
+	padding-right: 0.6em;
+	transition: all 0.6s;
+}
+
 @media screen and (min-width: 768px) {
 	.bar {
 		display: none;
@@ -562,6 +782,28 @@ hr {
 		font-size: 2em;
 		margin-left: 2.3em;
 		font-weight: 400;
+	}
+	/*search tutors*/
+	.section2 {
+		display: flex;
+		justify-content: space-between;
+		align-items: flex-start;
+	}
+	.posts {
+		flex: 3;
+	}
+	.availableT {
+		flex: 1;
+	}
+
+	.eachTestimonial blockquote {
+		width: 50%;
+		font-size: calc(16px + 1em);
+	}
+
+	.eachTestimonial .previous,
+	.eachTestimonial .next {
+		font-size: 3em;
 	}
 
 	.wrapper {

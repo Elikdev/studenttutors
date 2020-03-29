@@ -18,9 +18,11 @@
         <header>
             <div class="container-box">
                 <div class="header-contents">
-                    <div class="logo">
-                        <h1>Student-Tutors</h1>
-                    </div>
+                    <a class="logo-link" href="/">
+                        <div class="logo">
+                            <h1>Student-Tutors</h1>
+                        </div>
+                    </a>
 
                     <nav class="big-nav">
                         <div class="buttons-big">
@@ -84,7 +86,6 @@
     </div>
 
     <script src="/glide.js"></script>
-
     <script>
         const bar = document.getElementById('bar');
         const menu = document.getElementById('menu');
@@ -123,9 +124,6 @@
         bar.addEventListener('click', () => {
             style();
         });
-        window.addEventListener('load', () => {
-            registerBox2.style.display = 'block';
-        })
         login.addEventListener('click', () => {
             registerBox.style.display = 'block';
             registerBox2.style.display = 'none';
@@ -151,6 +149,10 @@
             registerBox2.style.display = 'block';
             registerBox.style.display = 'none';
         });
+        window.addEventListener('load', () => {
+            registerBox2.style.display = 'block';
+            registerBox.style.display = 'none';
+        })
         window.addEventListener('click', event => {
             if (event.target == registerBox) {
                 registerBox.style.display = 'none';
@@ -164,6 +166,7 @@
         });
 
     </script>
+
 </body>
 
 </html>

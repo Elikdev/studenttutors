@@ -26,12 +26,14 @@
             </div>
             {{/if}}
 
-            <label>
-                <input type="email" name="email" placeholder="Email" value="{{body.email}}" />
-            </label>
-            <label>
-                <input type="password" name="password" placeholder="Password" />
-            </label>
+            <div class="login-group1">
+                <label for="email">Email</label>
+                <input type="email" name="email" placeholder="email@example.com" value="{{body.email}}" />
+            </div>
+            <div class="login-group1">
+                <label for="password">Password</label>
+                <input type="password" name="password" placeholder="Enter your password" />
+            </div>
             <label class="rmb"><input type="checkbox" checked="checked" name="remember" />
                 Remember me</label>
             <button type="submit" name="login">Sign In</button>
@@ -71,35 +73,41 @@
                 <h2>Registration Form</h2>
                 <p>Please fill in the form to create an account</p>
             </div>
-            <label class="login-group1">
-                <input type="text" name="fullname" placeholder="Fullname" value="{{body.fullname}}" />
-            </label>
-            <label class="login-group1">
-                <input type="email" name="email" placeholder="Email" value="{{body.email}}" />
-            </label>
-            <label class="login-group1">
+            <div class="login-group1">
+                <label for="fullname">Fullname</label>
+                <input type="text" name="fullname" placeholder="Your name" value="{{body.fullname}}" />
+            </div>
+            <div class="login-group1">
+                <label for="email">Email</label>
+                <input type="email" name="email" placeholder="email@example.com" value="{{body.email}}" />
+            </div>
+            <div class="login-group1">
+                <label for="level">Level</label>
                 <select name="level" id="level">
+                    {{#if body.level }}
                     <option value="{{body.level}}">{{body.level}}</option>
-                    <option value="sLevel">--Select Level--</option>
-                    <option value="jss">Junior Secondary</option>
-                    <option value="sss">Senior Secondary</option>
-                    <option value="100L">100 Level</option>
-                    <option value="200L">200 Level</option>
-                    <option value="300L">300 Level</option>
-                    <option value="400L">400 Level</option>
-                    <option value="500L">500 Level</option>
-
+                    {{/if}}
+                    <option value="Select Value">--Select Level--</option>
+                    <option value="JSS">Junior Secondary(JSS)</option>
+                    <option value="SSS">Senior Secondary(SSS)</option>
+                    <option value="100L">100 Level(100L)</option>
+                    <option value="200L">200 Level(200L)</option>
+                    <option value="300L">300 Level(300L)</option>
+                    <option value="400L">400 Level(400L)</option>
+                    <option value="500L">500 Level(500L)</option>
                 </select>
-            </label>
-            <label class="form-group">
-                <input type="password" name="password" placeholder="Password" />
-            </label>
-            <label class="form-group">
-                <textarea name="profile_details"
+            </div>
+            <div class="login-group1">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" />
+            </div>
+            <div class="login-group1">
+                <label for="profile_details">Bio</label>
+                <textarea name="profile_details" id="profile_details"
                     placeholder="Little details about yourself">{{body.profile_details}}</textarea>
                 <label class="rmb"><input type="checkbox" checked="checked" name="remember" />
                     Remember me</label>
-            </label>
+            </div>
             <button type="submit" name="register">Sign up</button>
 
             <div class="others">
@@ -166,7 +174,7 @@
             </p>
             <p><i class="fas fa-users"></i> Interact with other students</p>
             <div class="btn-container">
-                <a href="#"><button>Find A Tutor</button></a>
+                <a href="/tutors/explore"><button>Find A Tutor</button></a>
             </div>
         </span>
     </div>
