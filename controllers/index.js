@@ -4,7 +4,7 @@ const { validationResult } = require('express-validator');
 
 exports.registerPage = (req, res) => {
 	res.render('index', {
-		layout: 'formlayout2',
+		layout: 'formLayout2',
 		errors: req.flash('errors'),
 		body: req.session.body
 	});
