@@ -33,8 +33,9 @@ app.use(cookieParser('elik'));
 //express session middleware
 app.use(
 	session({
-		secret: 'elik',
-		cookie: { maxAge: 60000 },
+		name: 'elik',
+		secret: process.env.SESS_KEY,
+		cookie: { maxAge: 1000 * 60 * 60 * 24 },
 		saveUninitialized: true,
 		resave: false
 	})
@@ -54,11 +55,21 @@ app.use('/user', indexRouter);
 
 //get the index view
 app.get('/', (req, res) => {
-	res.render('index', {
-		title: 'Student-Tutors || Welcome',
-		success: req.flash('success'),
-		email: req.session.email
-	});
+	const user = req.session.email;
+
+	if (!user) {
+		res.render('index', {
+			title: 'Student-Tutors || Welcome',
+			session: false
+		});
+	} else {
+		res.render('index', {
+			title: 'Student-Tutors || Welcome',
+			success: req.flash('success'),
+			session: true,
+			email: req.session.email
+		});
+	}
 });
 
 const port = process.env.PORT || 4000;

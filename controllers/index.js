@@ -132,8 +132,9 @@ exports.loginUser = (req, res) => {
 };
 
 exports.logUserout = (req, res) => {
-	req.session = null;
-	res.redirect('/user/login');
+	req.session.destroy(err => {
+		res.redirect('/');
+	});
 };
 
 exports.contactForm = (req, res) => {

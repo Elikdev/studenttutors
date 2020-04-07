@@ -133,6 +133,83 @@ header {
 .active {
 	display: block;
 }
+
+/*access key dropdown */
+.s-dropdown-wrapper {
+	position: relative;
+	/*background: #881238;*/
+	border: 1px solid red;
+	box-shadow: 8px 4px 12px rgba(136, 18, 56, 0.15);
+	border-radius: 5.47619px;
+	width: 90px;
+	height: 20px;
+	transition: 250ms ease;
+	z-index: 5;
+	color: #000000;
+}
+
+.s-dropdown-wrapper:hover {
+	background-color: #932045;
+}
+.s-dropdown-wrapper small {
+	background: transparent;
+	font-size: 14px;
+	padding: 0px 5px 0px 5px;
+	margin: 0px 0px 0px 0px;
+	line-height: 14px;
+	color: #000000;
+	cursor: pointer;
+	font-family: Sanchez, sans-serif;
+}
+.s-dropdown-wrapper i {
+	position: absolute;
+	right: 17px;
+	cursor: pointer;
+	transition: 180ms ease;
+	top: 50%;
+	width: 12px;
+	transform: translateY(-50%);
+}
+.s-dropdown-list {
+	background: #a81f4a;
+	box-shadow: 0px 4px 12px rgba(238, 69, 64, 0.15);
+	border-radius: 6px;
+	width: 120px;
+	height: 130px;
+	position: absolute;
+	left: 0;
+	top: calc(100% + 1px);
+	z-index: 1;
+	overflow-y: scroll;
+	opacity: 0;
+	pointer-events: none;
+	transform: translateY(-24px);
+	transition: 270ms ease;
+}
+
+.s-dropdown-opened {
+	opacity: 1;
+	pointer-events: all;
+	transform: translateY(0px);
+}
+
+.s-dropdown-list p {
+	padding: 4px 8px;
+	margin: 4px;
+	border-radius: 4px;
+	font-size: 10px;
+	transition: 170ms ease;
+}
+
+.s-dropdown-list p:hover {
+	background: #881238;
+	cursor: pointer;
+}
+
+.s-arr-opene {
+	transform: translateY(-50%) rotate(-180deg) !important;
+}
+
 .registration2 {
 	display: none;
 	position: absolute;
@@ -194,12 +271,12 @@ header {
 	align-items: flex-end;
 }
 .errors li {
-	color: #ff0707;
+	color: #950000;
 	width: 80%;
 	background-color: #f8d7da;
 	border-radius: 5px;
-	padding: 0.5em 0 0.5em 5em;
-	margin: 0.4em auto;
+	padding: 1em 0.5em;
+	margin: 0.7em auto;
 }
 
 .text {
@@ -289,6 +366,7 @@ header {
 	color: #32274e;
 }
 .img-thumb .avatar {
+	margin-top: 2em;
 	width: 40%;
 	border-radius: 50%;
 	border: 6px solid #6b5b95;

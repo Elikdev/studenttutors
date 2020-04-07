@@ -2,7 +2,7 @@
 {{else}}
 <div class="registration" id="registration">
     <span class="close" id="close" onclick=" document.getElementById('registration').style.display='none'">
-        &times;
+        <a href="/">&times;</a>
     </span>
     <form action="/user/login" method="post" class="login-form">
 
@@ -18,7 +18,7 @@
             {{/if}}
             {{#if errors}}
             <div class="img-thumb">
-                <img src="/img/avatar1.png" alt="Avatar" class="avatar" style="border: 6px solid #e26a8e" />
+                <img src="/img/avatar1.png" alt="Avatar" class="avatar" style="border: 6px solid #f8d7da" />
             </div>
             {{else}}
             <div class="img-thumb">
@@ -54,9 +54,8 @@
 {{#if success}}
 {{else}}
 <div class="registration2" id="registration2">
-    <span class="close" onclick=" document.getElementById('registration2').style.display='none'">
-        &times;
-    </span>
+    <span class="close" onclick=" document.getElementById('registration2').style.display='none'"><a
+            href="/">&times;</a></span>
     <form action="/user/register" method="post" class="login-form">
 
         <div class="form-container">

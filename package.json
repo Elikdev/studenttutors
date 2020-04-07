@@ -15,7 +15,8 @@
 		"express-session": "^1.17.0",
 		"express-validator": "^6.4.0",
 		"mongoose": "^5.8.9",
-		"nodemailer": "^6.4.5"
+		"nodemailer": "^6.4.5",
+		"nodemailer-mailgun-transport": "^2.0.0"
 	},
 	"devDependencies": {
 		"nodemon": "^2.0.2"
