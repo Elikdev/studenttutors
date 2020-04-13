@@ -27,6 +27,7 @@
 body {
 	background: #f7f7f7;
 	font-family: 'Roboto';
+	font-size: 18px;
 }
 
 .container-box {
@@ -53,9 +54,10 @@ textarea:focus {
 a {
 	text-decoration: none;
 	color: #c4c2c5;
+	transition: all 0.7s;
 }
 a:hover {
-	text-decoration: solid underline;
+	font-weight: 500;
 }
 
 header {
@@ -69,7 +71,7 @@ header {
 	display: flex;
 	justify-content: space-between;
 	flex-direction: row;
-	padding: 1.2em 0 0.4em 0;
+	padding: 1.2rem 0 0.4rem 0;
 }
 .header-contents .logo-link {
 	color: #ffffff;
@@ -84,19 +86,41 @@ header {
 	font-weight: 600;
 }
 
-.search form input {
-	margin-top: 0.5em;
-	height: 1.8em;
-	padding: 5px;
-}
 .bar i {
 	font-size: calc(12px + 1em);
 	cursor: pointer;
 }
+
 .interactives {
 	display: none;
-	padding-bottom: 1em;
-	transition: all 0.7s;
+	position: absolute;
+	z-index: 4;
+	width: 100%;
+	margin: 0 auto;
+	min-height: 100vh;
+}
+
+.interactives .menu-list {
+
+	width: 100%;
+	min-height: 100vh;
+	border: none;
+	background-color: #0e0c14;
+	opacity: 0.7;
+}
+
+.menu-list .close {
+	width: 10%;
+	font-size: 40px;
+	float: right;
+	text-align: center;
+	cursor: pointer;
+	background-color: #ffffff;
+	background-image: linear-gradient(180deg, #ffffff 20%, #ffffff 78%);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	transition: all ease-in 0.8s;
 }
 .buttons {
 	display: flex;
@@ -104,26 +128,26 @@ header {
 	text-align: center;
 	align-items: center;
 	justify-content: center;
+	margin-top: 1.6rem;
+	transition: all ease-in 0.8s;
 }
-.buttons button a {
+.buttons span a {
 	color: #ffffff;
+	font-weight: 500;
+	font-size: 1.5em;
 }
-.buttons button {
-	width: 40%;
-	background-color: #6b5b95;
+.buttons span {
+	width: 100%;
 	border: none;
-	margin: 12px auto 12px auto;
-	color: #ffffff;
-	font-size: 0.9em;
-	font-weight: 200;
-	opacity: 0.5;
-	transition: all 0.7s;
+	background: transparent;
+	margin: 15px auto 15px auto;
+	transition: all ease-in 0.8s;
 }
-.buttons button:hover a {
-	font-weight: 300;
+.buttons span:hover a {
+	font-weight: 700;
 	color: #a380ec;
 	opacity: 1;
-	transition: all 0.7s;
+	transition: all ease-in 0.8s;
 }
 
 .big-nav {
@@ -137,77 +161,65 @@ header {
 /*access key dropdown */
 .s-dropdown-wrapper {
 	position: relative;
-	/*background: #881238;*/
-	border: 1px solid red;
-	box-shadow: 8px 4px 12px rgba(136, 18, 56, 0.15);
-	border-radius: 5.47619px;
-	width: 90px;
+	margin-right: -3rem;
+	font-size: 1.05em;
+	width: 140px;
 	height: 20px;
-	transition: 250ms ease;
-	z-index: 5;
-	color: #000000;
 }
-
-.s-dropdown-wrapper:hover {
-	background-color: #932045;
-}
-.s-dropdown-wrapper small {
-	background: transparent;
-	font-size: 14px;
-	padding: 0px 5px 0px 5px;
-	margin: 0px 0px 0px 0px;
-	line-height: 14px;
-	color: #000000;
+#c-dp {
 	cursor: pointer;
-	font-family: Sanchez, sans-serif;
-}
-.s-dropdown-wrapper i {
-	position: absolute;
-	right: 17px;
-	cursor: pointer;
-	transition: 180ms ease;
-	top: 50%;
-	width: 12px;
-	transform: translateY(-50%);
+	font-size: calc(0.8em + 2px);
 }
 .s-dropdown-list {
-	background: #a81f4a;
-	box-shadow: 0px 4px 12px rgba(238, 69, 64, 0.15);
-	border-radius: 6px;
-	width: 120px;
-	height: 130px;
+	display: none;
 	position: absolute;
-	left: 0;
-	top: calc(100% + 1px);
-	z-index: 1;
-	overflow-y: scroll;
-	opacity: 0;
-	pointer-events: none;
-	transform: translateY(-24px);
-	transition: 270ms ease;
+	width: 120px;
+	z-index: 1000;
+	padding-top: 1.5rem;
+	padding-left: 2rem;
+	top: calc(100% + 14px);
+	background: #0e0c14;
+	opacity: 0.7;
+	margin-left: -1.3rem;
 }
-
-.s-dropdown-opened {
-	opacity: 1;
-	pointer-events: all;
-	transform: translateY(0px);
-}
-
 .s-dropdown-list p {
-	padding: 4px 8px;
-	margin: 4px;
-	border-radius: 4px;
-	font-size: 10px;
-	transition: 170ms ease;
-}
-
-.s-dropdown-list p:hover {
-	background: #881238;
+	padding-bottom: 1.4rem;
 	cursor: pointer;
+	transition: all 0.8s;
+	animation: drpdown 0.7s ease;
+}
+@keyframes drpdown {
+	from {
+		transform: translateY(-50%);
+		opacity: 0;
+	}
+	to {
+		transform: translateY(0);
+		opacity: 0.7;
+	}
+}
+.s-dropdown-list p a {
+	color: #ffffff !important;
+}
+.s-dropdown-list p i {
+	padding-right: 8px;
+	color: #b298f8 !important;
+}
+.s-dropdown-list p:hover {
+	color: #ffffff;
+	font-size: 1.05em;
+	font-weight: 800;
 }
 
-.s-arr-opene {
-	transform: translateY(-50%) rotate(-180deg) !important;
+.open-drpdwn {
+	display: block;
+}
+.open-arrow {
+	transform: rotate(-180deg);
+}
+.profile i,
+.logout i {
+	padding-left: 5px;
 }
 
 .registration2 {
@@ -493,6 +505,7 @@ hr {
 	margin-bottom: 1em;
 	min-height: 1.2em;
 	padding: 1em;
+	font-size: 0.8em;
 	color: #333;
 	border: 2px solid #aaaaaa;
 	border-radius: 5px;
@@ -500,8 +513,8 @@ hr {
 .wrapper form input[type='submit'] {
 	width: 60%;
 	text-transform: uppercase;
-	font-size: 1em;
-	font-weight: 600;
+	font-size: 0.5em;
+	font-weight: 550;
 	background: #614c95;
 	color: #ffffff;
 	border: none;
@@ -514,6 +527,7 @@ hr {
 	margin-bottom: 1em;
 	min-height: 6em;
 	color: #333;
+	font-size: 0.8em;
 	padding: 1em;
 	border: 2px solid #aaaaaa;
 	border-radius: 5px;
@@ -528,13 +542,13 @@ hr {
 	margin-right: 1em;
 	color: #c4c2c5;
 	cursor: pointer;
-	font-size: 0.9em;
+	font-size: 0.7em;
 	transition: all 0.6s;
 }
 .social-media .copyright span:hover {
 	color: #201f1f;
 	font-weight: 500;
-	transition: all 0.6s;
+	transition: all 0.4s;
 }
 .social-media .icons {
 	margin-top: 1em;
@@ -549,7 +563,7 @@ hr {
 	padding: 2px;
 	border: 3px solid #f4f2f8;
 	border-radius: 50%;
-	transition: all 0.6s;
+	transition: all 0.4s;
 }
 .social-media .icons .copy,
 .social-media .icons .ackng {
@@ -785,14 +799,24 @@ hr {
 	.bar {
 		display: none;
 	}
+	.interactives {
+		display: none !important;
+	}
+	.drop {
+		display: none !important;
+	}
+	.s-dropdown-list {
+		padding-top: 1.5rem;
+		padding-left: 4rem;
+	}
 	.search form input {
 		width: 120%;
-		height: 1.8em;
+		height: 1.8rem;
 	}
 	.big-nav {
 		display: block;
 		width: 60%;
-		margin-top: 0.6em;
+		margin-top: 0.04rem;
 	}
 	.buttons-big {
 		display: flex;
@@ -801,21 +825,18 @@ hr {
 	}
 	.buttons-big div {
 		font-size: 17px;
-		font-weight: 500;
-		padding: 3px;
-		margin-left: 8px;
+		padding: 0.5rem;
+		margin-left: 0.6rem;
 		border: none;
 
 		cursor: pointer;
 	}
 	.buttons-big div a {
 		color: #ffffff;
-		opacity: 0.8;
+		opacity: 1;
 	}
 	.buttons-big div a:hover {
 		color: #a380ec;
-		opacity: 1;
-		transition: all 0.7s;
 	}
 	.registration,
 	.registration2 {

@@ -33,21 +33,12 @@
                                 <a href="#">Recent Topics</a>
                             </div>
                             {{#if session}}
-                            <div class="s-dropdown-wrapper">
-                                <small onclick="toggleDropdown('s-dp-01','s-arr-01')" name=""
-                                    id="s-dp-input-01">{{email}}</small>
-                                <i id="s-arr-01" onclick="toggleDropdown('s-dp-01','s-arr-01')" class="fas fa-user"></i>
-
-                                <div id="s-dp-01" class="s-dropdown-list">
-                                    <p>First item</p>
-                                    <p>Second item</p>
-                                    <p>Third item</p>
-                                    <p>Fourth item</p>
-                                    <p>Fifth item</p>
-                                    <p><a href="/user/logout">Log out</a></p>
-                                </div>
+                            <div class="profile">
+                                <p><a href="#">{{email}}</a><i class="fas fa-user"></i></p>
                             </div>
-
+                            <div class="logout">
+                                <p><a href="/user/logout">Log out</a><i class="fas fa-user-alt-slash"></i></p>
+                            </div>
                             {{else}}
                             <div class="login">
                                 <a href="/user/login" id="login">Login</a>
@@ -58,44 +49,47 @@
                             {{/if}}
                         </div>
                     </nav>
+                    {{#if session}}
+                    <div class="s-dropdown-wrapper drop">
+                        <small name="" id="s-dp">{{email}}</small>
+                        <i id="c-dp" class="fas fa-caret-down"></i>
+
+                        <div id="s-dp-list" class="s-dropdown-list">
+                            <p><i class="fas fa-user"></i><a href="#">Profile</a></p>
+                            <p><i class="fas fa-user-alt-slash"></i><a href="/user/logout">Log out</a></p>
+                        </div>
+                    </div>
+                    {{else}}
+                    {{/if}}
                     <div class="bar" id="bar">
                         <i class="fas fa-bars"></i>
                     </div>
                 </div>
-                <nav class="interactives" id="menu">
-                    <div class="buttons">
-                        <button class="trending">
-                            <a href="http://">Trending Topics</a>
-                        </button>
-                        <button class="recent-posts">
-                            <a href="http://">Recent Topics</a>
-                        </button>
-                        {{#if session}}
-                        <button class="s-dropdown-wrapper">
-                            <small onclick="toggleDropdown('s-dp-01','s-arr-01')" name=""
-                                id="s-dp-input-01">{{email}}</small>
-                            <i id="s-arr-01" onclick="toggleDropdown('s-dp-01','s-arr-01')" class="fas fa-user"></i>
 
-                            <div id="s-dp-01" class="s-dropdown-list">
-                                <p>First item</p>
-                                <p>Second item</p>
-                                <p>Third item</p>
-                                <p>Fourth item</p>
-                                <p>Fifth item</p>
-                                <p><a href="/user/logout">Log out</a></p>
-                            </div>
-                        </button>
-
-                        {{else}}
-                        <button class="login"><a href="/user/login" id="login1">Login</a></button>
-                        <button class="register">
-                            <a href="/user/register" id="register1">Sign Up</a>
-                        </button>
-                        {{/if}}
-                    </div>
-                </nav>
             </div>
         </header>
+        <nav class="interactives" id="menu">
+            <div class="menu-list">
+                <small class="close" id="closeBtn">
+                    <p onclick=" document.getElementById('menu').style.display='none'">&times;</p>
+                </small>
+                <div class="buttons">
+                    <span class="trending">
+                        <a href="http://">Trending Topics</a>
+                    </span>
+                    <span class="recent-posts">
+                        <a href="http://">Recent Topics</a>
+                    </span>
+                    {{#if session}}
+                    {{else}}
+                    <span class="login"><a href="/user/login" id="login1">Login</a></span>
+                    <span class="register">
+                        <a href="/user/register" id="register1">Sign Up</a>
+                    </span>
+                    {{/if}}
+                </div>
+            </div>
+        </nav>
 
         {{{body}}}
 
@@ -127,12 +121,28 @@
         </footer>
     </div>
 
-    <script src="/glide.js"></script>
-    <script src="/style.js"></script>
-
+<script src="/style.js"></script>
+<script src="/glide.js"></script>
+<script>
+    const options = {
+	type: 'carousel',
+	perView: 3,
+	startAt: 0,
+	breakpoints: {
+		800: {
+			perView: 2,
+		},
+		600: {
+			perView: 1,
+		},
+	},
+};
+new Glide('.glide', options).mount();
+</script>
 
 
 
 </body>
+
 
 </html>

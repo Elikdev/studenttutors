@@ -5,6 +5,7 @@ const indexRoutes = require('./routes/home');
 const exhbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const path = require('path');
+const config = require('./config/config');
 const dbConnection = require('./config/db');
 const session = require('express-session');
 const flash = require('connect-flash');
@@ -34,10 +35,10 @@ app.use(cookieParser('elik'));
 app.use(
 	session({
 		name: 'elik',
-		secret: process.env.SESS_KEY,
+		secret: config.SESS_KEY,
 		cookie: { maxAge: 1000 * 60 * 60 * 24 },
 		saveUninitialized: true,
-		resave: false
+		resave: false,
 	})
 );
 app.use((req, res, next) => {
@@ -60,14 +61,14 @@ app.get('/', (req, res) => {
 	if (!user) {
 		res.render('index', {
 			title: 'Student-Tutors || Welcome',
-			session: false
+			session: false,
 		});
 	} else {
 		res.render('index', {
 			title: 'Student-Tutors || Welcome',
 			success: req.flash('success'),
 			session: true,
-			email: req.session.email
+			email: req.session.email,
 		});
 	}
 });
