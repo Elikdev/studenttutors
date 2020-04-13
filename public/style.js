@@ -46,5 +46,4 @@ window.addEventListener('mouseup', (event) => {
 	if (event.target != menu && event.target.parentNode != menu ) {
 		menu.style.display = 'none';
 	}
-	alert(event.target)
 });
