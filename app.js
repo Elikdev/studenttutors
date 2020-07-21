@@ -18,8 +18,8 @@ dbConnection();
 const app = express();
 
 //handlebars
-app.engine('handlebars', exhbs({ defaultLayout: 'main' }));
-app.set('view engine', 'handlebars');
+app.engine('hbs', exhbs({ extname: '.hbs', defaultLayout: 'main' }));
+app.set('view engine', 'hbs');
 
 //body parser
 app.use(bodyParser.urlencoded({ extended: true }));
