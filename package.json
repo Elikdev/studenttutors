@@ -16,7 +16,7 @@
 		"express-validator": "^6.4.0",
 		"minimist": "^1.2.5",
 		"mongoose": "^5.8.9",
-		"nodemailer": "^6.4.5",
+		"nodemailer": "^6.4.16",
 		"nodemailer-mailgun-transport": "^2.0.0"
 	},
 	"devDependencies": {
